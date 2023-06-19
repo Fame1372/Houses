@@ -1,0 +1,45 @@
+@use 'components.scss';
+@use 'modules.scss';
+@use 'colors.scss';
+
+@use 'fonts.scss';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'iranyekan', tahoma;
+  background-color: #f4f6fb;
+}
+
+input {
+  font-family: 'iranyekan';
+  font-size: 0.7rem;
+
+  &::placeholder {
+    font-family: 'iranyekan';
+    font-size: 0.7rem;
+  }
+}
+
+button {
+  font-family: 'iranyekan';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
