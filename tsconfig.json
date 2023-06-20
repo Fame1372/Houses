@@ -2,6 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "typeRoots": [
+      "node_modules/@types",
+      // "src/typing"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,15 +18,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "src",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@modules/*": ["modules/*"],
+      "@root/*": ["../*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/_app.tsx"],
   "exclude": ["node_modules"]
 }

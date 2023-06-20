@@ -1,0 +1,13 @@
+.input {
+    & .MuiFormControl-root {
+        width: 80% !important;
+    }
+    & .MuiOutlinedInput-adornedEnd {
+        border-radius: 10px;
+        background-color: #f4f6fb;
+    }
+}
+
+.makeStyles-search-1 {
+    width: 62%;
+}
