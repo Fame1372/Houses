@@ -21,9 +21,6 @@
         &__info {
             font-size: 10px;
             width: 50%;
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: start;
             margin-left: 12px;
             p {
                 margin-bottom: 0;
@@ -33,6 +30,21 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
+                margin-top: 25px;
+                .MuiSvgIcon-root {
+                    width: 0.6em;
+                    color: #838282;
+                }
+            }
+            &__edit {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                size: 10px;
+                .MuiSvgIcon-root {
+                    width: 0.8em;
+                    color: #ec7661;
+                }
             }
         }
     }

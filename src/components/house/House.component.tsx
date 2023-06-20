@@ -1,6 +1,12 @@
 "use client"
 import React from 'react';
 import Image from 'next/image'
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
+import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
+import CropSharpIcon from '@mui/icons-material/CropSharp';
+
 
 
 // interface Props {
@@ -12,7 +18,9 @@ import Image from 'next/image'
 //   CountBedroom : number;
 // }
 
-export default function House({houseName ,price,location,area, CountBedroom}: Props) {
+// export default function House({houseName ,price,location,area, CountBedroom}: Props) {
+  export default function House() {
+
   return <>
   <div className='card'>
       <div className='card__house'>
@@ -24,12 +32,28 @@ export default function House({houseName ,price,location,area, CountBedroom}: Pr
             alt="Picture of the author"
           />
           <div className='card__house__info'>
-            <p>stokvisstraat132</p>
+            <div className='card__house__info__edit'>
+                <p>stokvisstraat132</p>
+                <div className='card__house__info__edit-icon'>
+                    <DeleteOutlineIcon/>
+                    <EditIcon/>
+                </div>
+            </div>
             <p>$ 5000</p>
             <p>1011AAAmsterdam</p>
             <div className='card__house__info__options'>
-              <p>1</p>
-              <p>120 m2</p>
+              <div style={{display: 'flex',flexDirection:'row'}}>
+              <BathtubOutlinedIcon/>
+              <p style={{marginLeft:5 , alignItems:'center'}}>1</p>
+              </div>
+              <div style={{display: 'flex',flexDirection:'row' }}>
+              <BedOutlinedIcon />
+              <p style={{marginLeft:5 , alignItems:'center'}}>150</p>
+              </div>
+              <div style={{display: 'flex',flexDirection:'row'}}>
+              <CropSharpIcon/>
+              <p style={{marginLeft:5 , alignItems:'center'}}>m3</p>
+              </div>
             </div>
           </div>
         </div>
