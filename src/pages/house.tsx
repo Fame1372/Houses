@@ -4,5 +4,5 @@ import HouseModule from '../modules/house'
 
 
  export default function Houses(){
-   return 'hhhhhhhhhhhhhhhh'
+   return <HouseModule />
  }

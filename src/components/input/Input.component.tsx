@@ -28,9 +28,9 @@ export default function InputIcon({}: Props) {
   };
 
   return (
-    <FormControl className={search}>
+    <FormControl className='input'
+    >
     <TextField
-      className='input'
       size="small"
       variant="outlined"
       onChange={handleChange}

@@ -4,7 +4,6 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "typeRoots": [
       "node_modules/@types",
-      // "src/typing"
     ],
     "allowJs": true,
     "skipLibCheck": true,
