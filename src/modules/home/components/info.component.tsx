@@ -20,8 +20,8 @@ export default function House({items}: Props) {
           <Image
             className="info__image"
             src={item.houseImage}
-            width={100}
-            height={90}
+            width={120}
+            height={110}
             alt="Picture of the author"
           />
           <div className="info__text">
