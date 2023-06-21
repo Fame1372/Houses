@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
-import InputIcon from 'common/components/input';
+import InputSearch from 'common/components/input-search';
 import ButtonGroop from 'common/components/button-group';
 
 interface Props {
@@ -21,7 +21,7 @@ export default function Header({handelRegister}: Props) {
           </div>
         </div>
         <div className="header__input-search">
-          <InputIcon />
+          <InputSearch />
         </div>
         <div className="header__button-group">
           <ButtonGroop />

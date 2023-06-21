@@ -23,3 +23,8 @@
         transform: rotate(0deg);
     }
 }
+
+.house-card {
+    overflow-y: scroll;
+    height: calc(100% - 400px);
+}

@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &__inputs-form {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+}

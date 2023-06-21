@@ -11,11 +11,9 @@ const useStyles = makeStyles(() => {
     }
   });
 });
-interface Props {
-  // children: any;
-}
 
-export default function InputIcon({}: Props) {
+
+export default function InputSearch() {
   const { search } = useStyles();
   const [showClearIcon, setShowClearIcon] = useState("none");
 
@@ -28,7 +26,7 @@ export default function InputIcon({}: Props) {
   };
 
   return (
-    <FormControl className='input'
+    <FormControl className='input-search '
     >
     <TextField
       size="small"
