@@ -41,7 +41,7 @@ export default function ButtonGroop({}: Props) {
 
   return (
         <ButtonGroup
-          disableElevation
+         disableElevation
           className='button'
           variant="contained"
           aria-label="Disabled elevation buttons"

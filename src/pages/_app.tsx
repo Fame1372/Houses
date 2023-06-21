@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import HouseModule from '../modules/house';
+import HouseModule from '../modules/home';
 import  '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
