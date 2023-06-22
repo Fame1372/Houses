@@ -5,11 +5,12 @@ import Layout from '../../common/components/layout';
 import Header from './components/header.component';
 import DataHouse from './components/info.component';
 import houseImage from '../../../public/house.png';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import InputSearch from 'common/components/input-search';
 import ButtonGroop from 'common/components/button-group';
 import HouseInfoItem from './types/house';
 import img from '../../../public/notFound.png';
+import Menu from '../../common/components/menu'
 
 const houseInfo = [
   {
@@ -136,13 +137,6 @@ export default function Home() {
           <ButtonGroop HandleSort={sort} />
         </div>
       </div>
-      {/* {searchData && searchData.length > 0 ? (
-        <div className='count-results'>
-          <p>{`${searchData.length} results found`}</p>
-        </div>
-      ) : (
-        ''
-      )} */}
       <div className="house-card">
         {searchData ? (
           <>
@@ -172,6 +166,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Menu/>
     </Layout>
   );
 }

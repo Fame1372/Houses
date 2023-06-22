@@ -1,0 +1,16 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 0px;
+    box-shadow: 0 0 10px #c8cacc9d;
+    align-items: center;
+    height: 45px;
+    &__home {
+        color: #ec7661;
+    }
+    // &__about {
+    //     color: gray;
+    // }
+}

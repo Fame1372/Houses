@@ -1,0 +1,26 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &__title {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    &__text {
+        font-size: 12px;
+        color: gray;
+        text-align: justify;
+        line-height: 3ch;
+    }
+    &__logo {
+        margin: 4% 0 0 0;
+    }
+}
