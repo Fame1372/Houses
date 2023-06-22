@@ -1,32 +1,19 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
-import InputSearch from 'common/components/input-search';
-import ButtonGroop from 'common/components/button-group';
 
 interface Props {
-  handelRegister?: any;
+  onClick?: () => void
 }
 
-export default function Header({handelRegister}: Props) {
+export default function Header({onClick}: Props) {
 
   return (
-    <>
-      <div className="header">
-        <div className="header__firstLine">
-          <h3 className="header__firstLine__title"> Houses </h3>
-          <div className="header__firstLine__icon">
-            <AddSharpIcon onClick={handelRegister} />
+        <div className="header">
+          <h3 className="header__title"> Houses </h3>
+          <div className="header__icon">
+            <AddSharpIcon onClick={onClick} />
           </div>
         </div>
-        <div className="header__input-search">
-          <InputSearch />
-        </div>
-        <div className="header__button-group">
-          <ButtonGroop />
-        </div>
-      </div>
-    </>
   );
 }

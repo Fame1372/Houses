@@ -1,14 +1,13 @@
-"use client"
-import React from 'react';
-import  ButtonGroup  from '@material-ui/core/ButtonGroup';
+'use client';
+import React , {useEffect ,useState} from 'react';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@mui/styles';
-
+import {makeStyles} from '@mui/styles';
 
 interface Props {
-  // children: any;
-}
+  HandleSort : (id : number) => void
 
+}
 
 //   const useStyles = () => makeStyles({
 //   root: {
@@ -32,22 +31,17 @@ interface Props {
 //   },
 // });
 
-
-
-export default function ButtonGroop({}: Props) {
-
+export default function ButtonGroop({HandleSort}: Props) {
   // const classes: any = useStyles();
 
-
   return (
-        <ButtonGroup
-         disableElevation
-          className='button'
-          variant="contained"
-          aria-label="Disabled elevation buttons"
-        >
-          <Button > price </Button>
-          <Button > size </Button>
-        </ButtonGroup>
-     );
-  }
+    <ButtonGroup
+      disableElevation
+      className="button"
+      variant="contained"
+      aria-label="Disabled elevation buttons">
+      <Button onClick={()=> HandleSort(1)}> price </Button>
+      <Button onClick={() => HandleSort(2)}> size </Button>
+    </ButtonGroup>
+  );
+}

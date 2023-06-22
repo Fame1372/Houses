@@ -15,12 +15,12 @@ interface Props {
 export default function House({items}: Props) {
   return (
     <>
-      {items.map((item: any) => (
+      {items?.map((item: any) => (
         <div className="info">
           <Image
             className="info__image"
             src={item.houseImage}
-            width={125}
+            width={130}
             height={110}
             alt="Picture of the author"
           />
@@ -35,21 +35,21 @@ export default function House({items}: Props) {
             <p style={{color:'gray'}}>{item.housePrice}</p>
             <p style={{color:'gray'}}>{item.houseLocation}</p>
             <div className="info__text__options">
-              <div style={{display: 'flex', flexDirection: 'row' , alignItems:'center'}}>
+              <div style={{display: 'flex', flexDirection: 'row' , alignItems:'center',marginRight: 10}}>
                 <BathtubOutlinedIcon />
-                <p style={{marginLeft: 5, alignItems: 'center'}}>
+                <p style={{margin: 5, alignItems: 'center'}}>
                   {item.countBathtub}
                 </p>
               </div>
-              <div style={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
+              <div style={{display: 'flex', flexDirection: 'row', alignItems:'center' , marginRight: 10}}>
                 <BedOutlinedIcon />
-                <p style={{marginLeft: 5, alignItems: 'center'}}>
+                <p style={{margin: 5, alignItems: 'center'}}>
                   {item.countBedroom}
                 </p>
               </div>
               <div style={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
                 <CropSharpIcon />
-                <p style={{marginLeft: 5, alignItems: 'center'}}>
+                <p style={{margin: 5, alignItems: 'center'}}>
                   {item.houseArea}
                 </p>
               </div>

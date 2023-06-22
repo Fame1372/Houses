@@ -9,7 +9,7 @@
         display: flex;
         justify-content: flex-end;
         border-radius: 5px;
-        margin: 10px;
+        margin: 10px 5px;
     }
     &__text {
         width: 100%;
@@ -40,7 +40,7 @@
         &__options {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            margin-top: 7%;
             .MuiSvgIcon-root {
                 width: 0.7em;
                 color: #838282;

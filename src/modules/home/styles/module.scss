@@ -1,30 +1,72 @@
-/* Tablet and Smaller Desktop */
-
-@media (min-width: 701px) and (max-width: 1120px) {
-    .grid {
-        grid-template-columns: repeat(2, 50%);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .vercelLogo {
-        filter: invert(1);
-    }
-    .logo {
-        filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-    }
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
-}
-
-.house-card {
-    overflow-y: scroll;
-    height: calc(100% - 400px);
-}
+        /* Tablet and Smaller Desktop */
+        
+        @media (min-width: 701px) and (max-width: 1120px) {
+            .grid {
+                grid-template-columns: repeat(2, 50%);
+            }
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .vercelLogo {
+                filter: invert(1);
+            }
+            .logo {
+                filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+        
+        .house-card {
+            overflow-y: scroll;
+            height: calc(100% - 400px);
+        }
+        
+        .search {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            &__input-search {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            &__button-group {
+                display: flex;
+                justify-content: center;
+                margin-top: 3%;
+            }
+        }
+        
+        .notif {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20%;
+            width: 100%;
+            &__text {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                font-size: 15px;
+                align-items: center;
+                color: gray;
+            }
+        }
+        
+        .count-results {
+            display: flex;
+            margin-left: 10%;
+            font-size: 14px;
+            font-weight: bold;
+            height: 5%;
+            margin-bottom: 8%;
+        }

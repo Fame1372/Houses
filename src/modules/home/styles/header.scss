@@ -1,30 +1,31 @@
 .header {
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // height: 18%;
+    // &__firstLine {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    height: 18%;
-    &__firstLine {
+    flex-direction: row;
+    align-items: center;
+    &__title {
         display: flex;
         justify-content: center;
-        flex-direction: row;
-        align-items: center;
-        &__title {
-            display: flex;
-            justify-content: center;
-            width: 75%;
-        }
-        &__icon {
-            color: gray;
-        }
+        width: 75%;
     }
-    &__input-search {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    &__button-group {
-        display: flex;
-        justify-content: center;
-        margin-top: 3%;
+    &__icon {
+        color: gray;
     }
 }
+
+// &__input-search {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+// }
+// &__button-group {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 3%;
+// }
+// }
