@@ -7,10 +7,17 @@
     box-shadow: 0 0 10px #c8cacc9d;
     align-items: center;
     height: 45px;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
     &__home {
-        color: #ec7661;
+         :active {
+            color: #ec7661;
+        }
     }
-    // &__about {
-    //     color: gray;
-    // }
+    &__about {
+         :active {
+            color: #ec7661;
+        }
+    }
 }

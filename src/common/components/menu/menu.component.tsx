@@ -14,12 +14,18 @@ export default function Menu({}: Props) {
         pathname: '/about',
       });
     };
+
+    const handleOnClicks = () => {
+      router.push({
+        pathname: '/home',
+      });
+    };
   
   return (
     <>
       <div className="menu">
-        <HomeRoundedIcon className='menu__home' />
-        <InfoRoundedIcon  color={'disabled'} onClick={handleOnClick} />
+        <HomeRoundedIcon className='menu__home' color={'disabled'} onClick={handleOnClicks}/>
+        <InfoRoundedIcon className='menu__about' color={'disabled'} onClick={handleOnClick} />
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import {makeStyles} from '@mui/styles';
 
 interface Props {
-  HandleSort : (id : number) => void
+  onItemActive : (id : number) => void
 
 }
 
@@ -31,7 +31,7 @@ interface Props {
 //   },
 // });
 
-export default function ButtonGroop({HandleSort}: Props) {
+export default function ButtonGroop({onItemActive}: Props) {
   // const classes: any = useStyles();
 
   return (
@@ -40,8 +40,8 @@ export default function ButtonGroop({HandleSort}: Props) {
       className="button"
       variant="contained"
       aria-label="Disabled elevation buttons">
-      <Button onClick={()=> HandleSort(1)}> price </Button>
-      <Button onClick={() => HandleSort(2)}> size </Button>
+      <Button onClick={()=> onItemActive(1)}  > price </Button>
+      <Button onClick={() => onItemActive(2)}> size </Button>
     </ButtonGroup>
   );
 }

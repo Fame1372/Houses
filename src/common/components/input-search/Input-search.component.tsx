@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
-import HouseInfoItem from './../../../modules/home/types/house';
 
 // const useStyles = makeStyles(() => {
 //   return createStyles({
@@ -31,8 +30,7 @@ export default function InputSearch({ handleOnchange } : Props) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setShowClearIcon(event.target.value === '' ? 'none' : 'flex');
     setValue(event.target.value);
-    handleOnchange(event.target.value , true)
-   
+    handleOnchange(event.target.value , event.target.value === '' ? false : true)
   };
 
   const handleClick = (): void => {

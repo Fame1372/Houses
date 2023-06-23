@@ -4,96 +4,23 @@ import Image from 'next/image';
 import Layout from '../../common/components/layout';
 import Header from './components/header.component';
 import DataHouse from './components/info.component';
-import houseImage from '../../../public/house.png';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import InputSearch from 'common/components/input-search';
 import ButtonGroop from 'common/components/button-group';
 import HouseInfoItem from './types/house';
 import img from '../../../public/notFound.png';
-import Menu from '../../common/components/menu'
+import Swal from 'sweetalert2';
+import {houseInfo} from './../../common/data/houseInfo';
+import { identifierToKeywordKind } from 'typescript';
 
-const houseInfo = [
-  {
-    houseImage: houseImage,
-    houseName: 'Stokvisstraat1',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'Stokvisstraat2',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'Stokvisstraat3',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'Stokvisstraat4',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'aaa',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'Stokvisstraat6',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'Stokvisstraat7',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-  {
-    houseImage: houseImage,
-    houseName: 'aaaaaa',
-    housePrice: '$ 5000.00',
-    houseLocation: '1011AA Amsterdam',
-    houseArea: '120 m2',
-    countBedroom: 1,
-    countBathtub: 1,
-  },
-];
 export default function Home() {
   const [data, setData] = useState(houseInfo);
+  const [sortType, setSortType] = useState(0);
+
   const [searchData, setSearchData] = useState<
     Array<HouseInfoItem> | undefined
   >([]);
   const [showCountResults, setShowCountResults] = useState(false);
-  // const [size , setSize]= useState();
-  // const [price , setPrice]= useState();
 
   const router = useRouter();
 
@@ -103,70 +30,98 @@ export default function Home() {
     });
   };
 
-  const search = (searchKey: string , mode: boolean) => {
+  const search = (searchKey: string, mode: boolean) => {
     let result;
     result = data.filter((item: HouseInfoItem) =>
       item.houseName.includes(searchKey)
     );
     setSearchData(result && result.length > 0 ? result : undefined);
-    setShowCountResults(mode)
+    setShowCountResults(mode);
   };
 
+  const handleDelete = (id: number) => {
+    Swal.fire({
+      text: ' Are you sure?',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      customClass: {
+        confirmButton: 'confirmButton',
+        cancelButton: 'cancelButton',
+      },
+      buttonsStyling: false,
+      backdrop: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let result;
+        result = data.filter((item: HouseInfoItem) => item.id !== id);
+        setData(result);
+      }
+    });
+  };
+
+  function compare(
+    firstItem: HouseInfoItem,
+    secondItem: HouseInfoItem
+  ) {
+    let result = 0;
+    if (sortType === 2) {
+      result = firstItem.housePrice < secondItem.housePrice ? -1 : 1;
+    } else {
+      result = firstItem.houseSize < secondItem.houseSize ? -1 : 1;
+    }
+    return result;
+  }
+
   const sort = (id: number) => {
-    // if (id === 2) {
-    //   const housesSize = data.map((item) => ({
-    //     size: item.houseArea,
-    //   }));
-    //   return console.log(housesSize);
-    // } else if (id === 1) {
-    //   const housesPrice = data.map((item) => ({
-    //     price: item.housePrice,
-    //   }));
-    //   return console.log(housesPrice);
-    // }
+    setSortType(id);
+    houseInfo.sort(compare);
+    setData(houseInfo);
   };
 
   return (
     <Layout effect="fade">
-      <Header onClick={handleOnClick} />
-      <div className="search">
-        <div className="search__input-search">
-          <InputSearch handleOnchange={search}  />
-        </div>
-        <div className="search__button-group">
-          <ButtonGroop HandleSort={sort} />
-        </div>
-      </div>
-      <div className="house-card">
-        {searchData ? (
-          <>
-            {showCountResults && (
-              <div className="count-results">
-                <p>{`${searchData.length} results found`}</p>
-              </div>
-            )}
-
-            <DataHouse
-              items={searchData && searchData.length > 0 ? searchData : data}
-            />
-          </>
-        ) : (
-          <div className="notif">
-            <Image
-              className="notif__image"
-              src={img}
-              width={300}
-              height={200}
-              alt="Picture of the author"
-            />
-            <div className="notif__text">
-              <p style={{marginBottom: 2}}>No results found.</p>
-              <p style={{marginTop: 0}}>Please try another keyword.</p>
-            </div>
+      <div style={{display: 'flex', flexDirection: 'column', height: '100vh'}}>
+        <Header onClick={handleOnClick} />
+        <div className="search">
+          <div className="search__input-search">
+            <InputSearch handleOnchange={search} />
           </div>
-        )}
+          <div className="search__button-group">
+            <ButtonGroop onItemActive={sort} />
+          </div>
+        </div>
+        <div className="house-card">
+          {searchData ? (
+            <>
+              {showCountResults && (
+                <div className="count-results">
+                  <p>{`${searchData.length} results found`}</p>
+                </div>
+              )}
+
+              <DataHouse
+                handleDelete={handleDelete}
+                items={searchData && searchData.length > 0 ? searchData : data}
+              />
+            </>
+          ) : (
+            <div className="notif">
+              <Image
+                className="notif__image"
+                src={img}
+                width={300}
+                height={200}
+                alt="Picture of the author"
+              />
+              <div className="notif__text">
+                <p style={{marginBottom: 2}}>No results found.</p>
+                <p style={{marginTop: 0}}>Please try another keyword.</p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-      <Menu/>
     </Layout>
   );
 }

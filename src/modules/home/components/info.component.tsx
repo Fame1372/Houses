@@ -10,12 +10,13 @@ import HouseInfoItem from './../types/house';
 
 interface Props {
   items: Array<HouseInfoItem>;
+  handleDelete: (id: number) => void
 }
 
-export default function House({items}: Props) {
+export default function House({items, handleDelete}: Props) {
   return (
     <>
-      {items?.map((item: any) => (
+      {items?.map((item: any, index) => (
         <div className="info">
           <Image
             className="info__image"
@@ -28,8 +29,11 @@ export default function House({items}: Props) {
             <div className="info__text__title">
               <p>{item.houseName}</p>
               <div className="info__text__title__edit-icon">
-                <EditIcon  style={{color: ' #ec7661'}}/>
-                <DeleteOutlineIcon  color={'action'}/>
+                <EditIcon style={{color: ' #ec7661'}} />
+                <DeleteOutlineIcon
+                  onClick={(id) => handleDelete(item.id)}
+                  color={'action'}
+                />
               </div>
             </div>
             <p>{item.housePrice}</p>
@@ -67,7 +71,7 @@ export default function House({items}: Props) {
                 }}>
                 <CropSharpIcon />
                 <p style={{margin: 5, alignItems: 'center'}}>
-                  {item.houseArea}
+                  {item.houseSize}
                 </p>
               </div>
             </div>

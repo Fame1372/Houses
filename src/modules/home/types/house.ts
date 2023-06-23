@@ -1,10 +1,11 @@
 
 export default interface HouseInfoItem{
+  id: number;
+  housePrice: number;
+  houseSize: number;
   houseImage: any;
   houseName: string;
-  housePrice: string;
   houseLocation: string;
-  houseArea: string;
   countBedroom: number;
   countBathtub: number;
 }
