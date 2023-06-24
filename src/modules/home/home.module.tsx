@@ -11,15 +11,11 @@ import HouseInfoItem from './types/house';
 import img from '../../../public/notFound.png';
 import Swal from 'sweetalert2';
 import {houseInfo} from './../../common/data/houseInfo';
-import { identifierToKeywordKind } from 'typescript';
 
 export default function Home() {
   const [data, setData] = useState(houseInfo);
   const [sortType, setSortType] = useState(0);
-
-  const [searchData, setSearchData] = useState<
-    Array<HouseInfoItem> | undefined
-  >([]);
+  const [searchData, setSearchData] = useState<Array<HouseInfoItem> | undefined>([]);
   const [showCountResults, setShowCountResults] = useState(false);
 
   const router = useRouter();
@@ -30,7 +26,7 @@ export default function Home() {
     });
   };
 
-  const search = (searchKey: string, mode: boolean) => {
+  const handleSearch = (searchKey: string, mode: boolean) => {
     let result;
     result = data.filter((item: HouseInfoItem) =>
       item.houseName.includes(searchKey)
@@ -73,7 +69,7 @@ export default function Home() {
     return result;
   }
 
-  const sort = (id: number) => {
+  const sortItem = (id: number) => {
     setSortType(id);
     houseInfo.sort(compare);
     setData(houseInfo);
@@ -85,10 +81,10 @@ export default function Home() {
         <Header onClick={handleOnClick} />
         <div className="search">
           <div className="search__input-search">
-            <InputSearch handleOnchange={search} />
+            <InputSearch handleOnchange={handleSearch} />
           </div>
           <div className="search__button-group">
-            <ButtonGroop onItemActive={sort} />
+            <ButtonGroop onItemActive={sortItem} />
           </div>
         </div>
         <div className="house-card">

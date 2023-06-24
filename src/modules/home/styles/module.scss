@@ -27,6 +27,18 @@
         .house-card {
             overflow-y: scroll;
             margin-bottom: 50px;
+            position: relative;
+            animation-name: example;
+            animation-duration: 1.2s;
+            animation-fill-mode: forwards;
+            @keyframes example {
+                from {
+                    top: 200px;
+                }
+                to {
+                    top: 0px;
+                }
+            }
         }
         
         .search {
