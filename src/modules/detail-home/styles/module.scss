@@ -1,0 +1,23 @@
+.detail {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+    &__context {
+        height: 60%;
+        width: 100%;
+        background-color: white;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        margin-top: 60%;
+    }
+}

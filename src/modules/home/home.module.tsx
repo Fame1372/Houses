@@ -11,11 +11,14 @@ import HouseInfoItem from './types/house';
 import img from '../../../public/notFound.png';
 import Swal from 'sweetalert2';
 import {houseInfo} from './../../common/data/houseInfo';
+import {isTemplateTail} from 'typescript';
 
 export default function Home() {
   const [data, setData] = useState(houseInfo);
   const [sortType, setSortType] = useState(0);
-  const [searchData, setSearchData] = useState<Array<HouseInfoItem> | undefined>([]);
+  const [searchData, setSearchData] = useState<
+    Array<HouseInfoItem> | undefined
+  >([]);
   const [showCountResults, setShowCountResults] = useState(false);
 
   const router = useRouter();
@@ -52,14 +55,12 @@ export default function Home() {
         let result;
         result = data.filter((item: HouseInfoItem) => item.id !== id);
         setData(result);
+        console.log(result);
       }
     });
   };
 
-  function compare(
-    firstItem: HouseInfoItem,
-    secondItem: HouseInfoItem
-  ) {
+  function compare(firstItem: HouseInfoItem, secondItem: HouseInfoItem) {
     let result = 0;
     if (sortType === 2) {
       result = firstItem.housePrice < secondItem.housePrice ? -1 : 1;
@@ -74,6 +75,31 @@ export default function Home() {
     houseInfo.sort(compare);
     setData(houseInfo);
   };
+
+  const handelDetail = (id: number) => {
+    console.log(id);
+    
+    let result;
+    result = data.filter((item: HouseInfoItem) =>
+      item.id.toString().includes(id.toString())
+    );
+    console.log(result[0]);
+    
+    router.push({
+      pathname: '/detail-home',
+      query: {
+        id: result[0].id,
+        housePrice: result[0].housePrice,
+        houseSize: result[0].houseSize,
+        houseImage: result[0].houseImage.src,
+        houseName: result[0].houseName,
+        houseLocation: result[0].houseLocation,
+        countBedroom: result[0].countBedroom,
+        countBathtub: result[0].countBathtub,
+      },
+    });
+  };
+  
 
   return (
     <Layout effect="fade">
@@ -98,6 +124,7 @@ export default function Home() {
 
               <DataHouse
                 handleDelete={handleDelete}
+                handleDetail={handelDetail}
                 items={searchData && searchData.length > 0 ? searchData : data}
               />
             </>

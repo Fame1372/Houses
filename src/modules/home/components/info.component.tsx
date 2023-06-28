@@ -11,9 +11,10 @@ import HouseInfoItem from './../types/house';
 interface Props {
   items: Array<HouseInfoItem>;
   handleDelete: (id: number) => void
+  handleDetail: (id: number) => void
 }
 
-export default function House({items, handleDelete}: Props) {
+export default function House({items, handleDelete ,handleDetail}: Props) {
   return (
     <>
       {items?.map((item: any, index) => (
@@ -24,6 +25,7 @@ export default function House({items, handleDelete}: Props) {
             width={130}
             height={110}
             alt="Picture of the author"
+            onClick={(id) => handleDetail(item.id)}
           />
           <div className="info__text">
             <div className="info__text__title">

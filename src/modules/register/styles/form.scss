@@ -1,10 +1,18 @@
 .form {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    margin: 10px;
     &__inputs-form {
         display: flex;
         justify-content: space-around;
         flex-direction: row;
+        width: 95%;
     }
+    // & .css-0 {
+    //     width: 100% im !important;
+    // }
+    // &__input-form {
+    //     width: 100% im !important
+    // }
 }
