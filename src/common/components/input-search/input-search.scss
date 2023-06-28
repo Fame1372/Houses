@@ -1,9 +1,16 @@
 .input-search {
     display: flex;
     justify-content: center;
-    width: 82% !important;
+    width: 90% !important;
+    font-size: 15px !important;
+     :focus {
+        border-color: white;
+    }
     & .MuiOutlinedInput-adornedEnd {
         border-radius: 10px;
-        background-color: #f4f6fb;
+        background-color: #e8e9ec;
+    }
+    & .MuiOutlinedInput-notchedOutline {
+        border-color: #e8e9ec;
     }
 }

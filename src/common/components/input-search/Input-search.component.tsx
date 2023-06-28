@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
+import HouseInfoItem from './../../../modules/home/types/house';
 
 // const useStyles = makeStyles(() => {
 //   return createStyles({
@@ -49,7 +50,7 @@ export default function InputSearch({ handleOnchange } : Props) {
         placeholder="search for a house"
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment position="start" >
               <SearchIcon style ={ {color: 'gray'}} />
             </InputAdornment>
           ),

@@ -20,6 +20,7 @@ export default function Home() {
     Array<HouseInfoItem> | undefined
   >([]);
   const [showCountResults, setShowCountResults] = useState(false);
+  const [activeItem , setctiveItem]= useState(1)
 
   const router = useRouter();
 
@@ -55,7 +56,6 @@ export default function Home() {
         let result;
         result = data.filter((item: HouseInfoItem) => item.id !== id);
         setData(result);
-        console.log(result);
       }
     });
   };
@@ -71,20 +71,17 @@ export default function Home() {
   }
 
   const sortItem = (id: number) => {
+    setctiveItem(id);
     setSortType(id);
     houseInfo.sort(compare);
     setData(houseInfo);
   };
 
-  const handelDetail = (id: number) => {
-    console.log(id);
-    
+  const handelDetail = (id: number) => {    
     let result;
     result = data.filter((item: HouseInfoItem) =>
       item.id.toString().includes(id.toString())
-    );
-    console.log(result[0]);
-    
+    );    
     router.push({
       pathname: '/detail-home',
       query: {
@@ -110,7 +107,7 @@ export default function Home() {
             <InputSearch handleOnchange={handleSearch} />
           </div>
           <div className="search__button-group">
-            <ButtonGroop onItemActive={sortItem} />
+            <ButtonGroop onItemActive={sortItem} activeItem={activeItem} />
           </div>
         </div>
         <div className="house-card">

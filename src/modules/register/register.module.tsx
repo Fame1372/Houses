@@ -7,8 +7,10 @@ import Header from '../register/components/header.component';
 export default function Home() {
   return (
     <Layout effect="fade">
-      <Header/>
-      <FormRegister />
+      <div className='register'>
+        <Header />
+        <FormRegister />
+      </div>
     </Layout>
   );
 }
